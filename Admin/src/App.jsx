@@ -7,13 +7,17 @@ import List from './pages/List/List'
 import Order from './pages/Order/Order'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react'
+import Login from './components/Login/Login'
 
 const App = () => {
-  
+  const[showLogin,setShowLogin]=useState(false);
   return (
     <div className=''>
       <ToastContainer />
-     <Navbar/>
+      {showLogin?<Login setShowLogin={setShowLogin}/>:<></>  
+         }
+     <Navbar setShowLogin={setShowLogin}/>
      <hr className='h-1 ' />
      <div className='app-component flex'>
        <Sidebar/>

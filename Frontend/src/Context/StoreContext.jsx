@@ -10,6 +10,8 @@ const StoreContextProvider = (props)=>{
 
         const [food_list ,setFoodList] = useState([])
 
+        const url = "http://localhost:3000";
+
         const fetchFoodList = async()=>{
             const response = await axios.get("http://localhost:3000/api/food/list");
             if(response.data.success){
@@ -77,7 +79,8 @@ const StoreContextProvider = (props)=>{
         removeFromCart,
         getTotalCartAmount,
         token,
-        setToken
+        setToken,
+        url
     }
     return (
         <StoreContext.Provider value={contextValue}>
